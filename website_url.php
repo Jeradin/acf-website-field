@@ -63,7 +63,7 @@ class Website_field extends acf_Field
 ?>
 		<tr class="field_option field_option_<?php echo $this->name; ?>">
 			<td class="label">
-				<label><?php _e("Show title?",'acf'); ?></label>
+				<label><?php _e("Show Title?",'acf'); ?></label>
 			</td>
 			<td>
 				<?php
@@ -73,8 +73,8 @@ class Website_field extends acf_Field
 				'value' => $field['website_title'],
 				'layout' => 'horizontal',
 				'choices' => array(
-					'true' => __('Show Title',acf),
-					'false' => __('Hide Title',acf)
+					'true' => __('Yes',acf),
+					'false' => __('No',acf)
 				)
 			));
 ?>
@@ -84,7 +84,7 @@ class Website_field extends acf_Field
 
 		<tr class="field_option field_option_<?php echo $this->name; ?>">
 			<td class="label">
-				<label><?php _e("Always External?",'acf'); ?></label>
+				<label><?php _e("Open in New Window?",'acf'); ?></label>
 			</td>
 			<td>
 				<?php
@@ -127,7 +127,7 @@ class Website_field extends acf_Field
 
 		if ($field['website_title'] == 'true')echo '<th class="title"><span>Title</span></th>';
 		echo '<th class="url"><span>URL</span></th>';
-		if ($field['internal_link'] != 'true')echo '<th class="internal" style="width:15.75%;"><span>Internal Link?</span></th>';
+		if ($field['internal_link'] != 'true')echo '<th class="internal" style="width:15.75%;"><span>Open in New Window?</span></th>';
 
 		echo '</tr></thead><tbody><tr>';
 
