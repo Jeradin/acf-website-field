@@ -84,7 +84,7 @@ class Website_field extends acf_Field
 
 		<tr class="field_option field_option_<?php echo $this->name; ?>">
 			<td class="label">
-				<label><?php _e("Open in New Window?",'acf'); ?></label>
+				<label><?php _e("Open in new Window?",'acf'); ?></label>
 			</td>
 			<td>
 				<?php
@@ -127,7 +127,7 @@ class Website_field extends acf_Field
 
 		if ($field['website_title'] == 'true')echo '<th class="title"><span>Title</span></th>';
 		echo '<th class="url"><span>URL</span></th>';
-		if ($field['internal_link'] != 'true')echo '<th class="internal" style="width:15.75%;"><span>Open in New Window?</span></th>';
+		if ($field['internal_link'] == 'true')echo '<th class="internal" style="width:15.75%;"><span>Open in New Window?</span></th>';
 
 		echo '</tr></thead><tbody><tr>';
 
@@ -140,7 +140,7 @@ class Website_field extends acf_Field
 		foreach($field['value'] as $key => $value)
 		{
 			echo '<td>';
-			if($key=='internal' && $field['internal_link'] != 'true'){
+			if($key=='internal' && $field['internal_link'] == 'true'){
 
 				echo '<ul class="checkbox_list true_false"><input type="hidden" name="'.$field['name'].'['.$key.']" value="0" />';
 				$selected = ($value == 1) ? 'checked="yes"' : '';
@@ -149,7 +149,7 @@ class Website_field extends acf_Field
 
 
 
-			}elseif($key=='title' && $field['website_title'] == 'true'){
+			}elseif($key=='title'  && $field['website_title'] == 'true'){
 
 
 				echo '<input type="text" value="' . $value . '" id="' . $field['name'] . '" class="' . $field['class'] . '" name="' . $field['name'] . '['.$key.']" />';
@@ -218,14 +218,15 @@ class Website_field extends acf_Field
 	function pre_save_field($field)
 	{
 		// defaults
-		$field['website'] = isset($field['website']) ? $field['website'] : '';
-
-		// vars
+		$field_links = isset($field['website']) ? $field_links = $field['website'] : $field_links = array('title' => '', 'url' => '', 'internal' => '');
+	
+	
+			// vars
 		$new_choices = array();
 
 
 		// key => value
-		foreach($field['website'] as $choice)
+		foreach($field_links as $choice)
 		{
 			$choice =  ereg_replace("(https?)://", "", $choice);
 			$new_choices[trim($choice)] = trim($choice);
