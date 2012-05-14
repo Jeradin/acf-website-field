@@ -139,29 +139,30 @@ class Website_field extends acf_Field
 
 		foreach($field['value'] as $key => $value)
 		{
-			echo '<td>';
+			
 			if($key=='internal' && $field['internal_link'] == 'true'){
-
+			echo '<td>';
 				echo '<ul class="checkbox_list true_false"><input type="hidden" name="'.$field['name'].'['.$key.']" value="0" />';
 				$selected = ($value == 1) ? 'checked="yes"' : '';
 				echo '<li><label><input type="checkbox" name="'.$field['name'].'['.$key.']" value="1" ' . $selected . ' />';
 				echo '</label></li></ul>';
 
-
+		echo '</td>';
 
 			}elseif($key=='title'  && $field['website_title'] == 'true'){
 
-
+echo '<td>';
 				echo '<input type="text" value="' . $value . '" id="' . $field['name'] . '" class="' . $field['class'] . '" name="' . $field['name'] . '['.$key.']" />';
 
-
+		echo '</td>';
 
 			}elseif($key=='url'){
-
+echo '<td>';
 				echo '<input type="text" value="' . $value . '" id="' . $field['name'] . '" class="' . $field['class'] . '" name="' . $field['name'] . '['.$key.']" />';
-			};
+					echo '</td>';
+					};
 
-			echo '</td>';
+	
 
 
 		}
