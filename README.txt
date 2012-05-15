@@ -36,7 +36,7 @@ The Website Field plugin needs to be added to your themes.
 * Added to Theme
 	1. Download and extract it to your theme, rename the field from githubs default to "acf-website-field".
 	2. Include the `website_url.php` file in you theme's `functions.php` or plugin file.  
-	   `include_once( rtrim( dirname( __FILE__ ), '/' ) . '/acf-website-field/website_url.php' );`
+	   	`register_field('Website_field', dirname(__File__) . '/acf-website-field/website_url.php');`
 
 == Frequently Asked Questions ==
 
