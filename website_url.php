@@ -268,7 +268,7 @@ echo '<td>';
 		// format value
 		
 			//If an external link
-			if($value['internal'] == '0'){ $external = 'target="_blank"';};
+			if($value['internal'] == '1'){ $external = 'target="_blank"';};
 			
 			//If show title
 			if(!empty($value['title'])){ $title = $value['title'];}else{$title = $value['url'];};
