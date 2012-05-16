@@ -15,7 +15,7 @@ and activated.
 
 The Website field gives a few basic options:
 -Show / Hide Title (if checked to No, than the website URL will show on the front end and the title field will not be shown in the admin)
--Open in New Window - default will make all URLs open a new browser window for external sites. ( if checked to No, than the admin section will have a checkbox to specify if the link should open in  anew window or not.)
+-Open in Current Window - default will make all URLs open a new browser window for external sites. ( if checked to Yes, than the admin section will have a checkbox to specify if the link should open the current window.)
 
 = Source Repository on GitHub =
 https://github.com/Jeradin/ACF-URL-Field

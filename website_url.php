@@ -64,6 +64,7 @@ class Website_field extends acf_Field
 		<tr class="field_option field_option_<?php echo $this->name; ?>">
 			<td class="label">
 				<label><?php _e("Show Title?",'acf'); ?></label>
+				<p class="description">If "Yes" than the user will have a field to enter a address title</p>
 			</td>
 			<td>
 				<?php
@@ -84,7 +85,8 @@ class Website_field extends acf_Field
 
 		<tr class="field_option field_option_<?php echo $this->name; ?>">
 			<td class="label">
-				<label><?php _e("Open in new Window?",'acf'); ?></label>
+				<label><?php _e("Open in Current Window?",'acf'); ?></label>
+				<p class="description">If "Yes" than the user can check a box to have the link be Internal</p>
 			</td>
 			<td>
 				<?php
@@ -127,7 +129,7 @@ class Website_field extends acf_Field
 
 		if ($field['website_title'] == 'true')echo '<th class="title"><span>Title</span></th>';
 		echo '<th class="url"><span>URL</span></th>';
-		if ($field['internal_link'] == 'true')echo '<th class="internal" style="width:15.75%;"><span>Open in New Window?</span></th>';
+		if ($field['internal_link'] == 'true')echo '<th class="internal" style="width:15.75%;"><span>Open in Same Window</span></th>';
 
 		echo '</tr></thead><tbody><tr>';
 
@@ -268,11 +270,12 @@ echo '<td>';
 		// format value
 		
 			//If an external link
-			if($value['internal'] == '1'){ $external = 'target="_blank"';};
+			if($value['internal'] == '0'){ $external = 'target="_blank"';};
 			
 			//If show title
 			if(!empty($value['title'])){ $title = $value['title'];}else{$title = $value['url'];};
 		
+
 
 				$value ='<a href="http://'.$value['url'].'" '.$external.'>'.$title.'</a>';
 		
@@ -280,7 +283,10 @@ echo '<td>';
 		
 
 		// return value
-		return $value;
+		if(empty($value['url'])){
+		    return $value;
+		};
+		
 
 	}
 
