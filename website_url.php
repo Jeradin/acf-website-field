@@ -280,10 +280,8 @@ echo '<td>';
 				$value ='<a href="http://'.$value['url'].'" '.$external.'>'.$title.'</a>';
 		
 		
-		
-
-		// return value
-		if(empty($value['url'])){
+			// return value
+		if($value['url'] == '' ){
 		    return $value;
 		};
 		
