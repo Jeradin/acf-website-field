@@ -129,7 +129,7 @@ class Website_field extends acf_Field
 
 		if ($field['website_title'] == 'true')echo '<th class="title"><span>Title</span></th>';
 		echo '<th class="url"><span>URL</span></th>';
-		if ($field['internal_link'] == 'true')echo '<th class="internal" style="width:15.75%;"><span>Open in Same Window</span></th>';
+		if ($field['internal_link'] == 'true')echo '<th class="internal" style="width:15.75%;"><span>Internal Link</span></th>';
 
 		echo '</tr></thead><tbody><tr>';
 
@@ -270,18 +270,20 @@ echo '<td>';
 		// format value
 		
 			//If an external link
-			if($value['internal'] == '0'){ $external = 'target="_blank"';};
+			if($value['internal'] == 0){ $external = 'target="_blank"';};
 			
 			//If show title
 			if(!empty($value['title'])){ $title = $value['title'];}else{$title = $value['url'];};
 		
-
+				$is_link = $value['url'];
 
 				$value ='<a href="http://'.$value['url'].'" '.$external.'>'.$title.'</a>';
 		
 		
-			// return value
-		if($value['url'] == '' ){
+		
+
+		// return value
+		if(!empty($is_link) ){
 		    return $value;
 		};
 		
