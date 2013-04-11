@@ -32,17 +32,8 @@ https://github.com/Jeradin/ACF-URL-Field/issues
 
 The Website Field plugin needs to be added to your themes.
 
-
-* Added to Theme
-	1. Download and extract it to your theme, rename the field from githubs default to "acf-website-field".
-	2. Include the `website_url.php` file in you theme's `functions.php` or plugin file.  
-	   	`add_action('acf/register_fields', 'website_field');
-
-function website_field()
-{
-	include_once('acf-website-field/website_url.php');
-}`
-
+	1. Download the zip file and upload as any Wordpress plugin.
+	
 == Frequently Asked Questions ==
 
 = I've activated the plugin, but nothing happens! =
@@ -56,6 +47,9 @@ activated. This is not a standalone plugin for WordPress, it only adds additiona
 2. Front End View.
 
 == Changelog ==
+= 1.0 =
+* Made it an upload able plugin
+
 = 0.8 =
 * Updated code for ACF 4.0
 
