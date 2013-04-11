@@ -1,9 +1,9 @@
 === Advanced Custom Fields - Website field add-on ===
 Contributors: Jeradin
 Tags: acf, acf add-on, website url, website title
-Requires at least: 3.0
+Requires at least: 4.0
 Tested up to: 3.3.1
-Stable tag: 0.7
+Stable tag: 0.8
 
 Adds a Website Field to Advanced Custom Fields. Select if link should be an external link, if it should show title or the url.
 
@@ -36,7 +36,12 @@ The Website Field plugin needs to be added to your themes.
 * Added to Theme
 	1. Download and extract it to your theme, rename the field from githubs default to "acf-website-field".
 	2. Include the `website_url.php` file in you theme's `functions.php` or plugin file.  
-	   	`register_field('Website_field', dirname(__File__) . '/acf-website-field/website_url.php');`
+	   	`add_action('acf/register_fields', 'website_field');
+
+function website_field()
+{
+	include_once('acf-website-field/website_url.php');
+}`
 
 == Frequently Asked Questions ==
 
@@ -51,6 +56,8 @@ activated. This is not a standalone plugin for WordPress, it only adds additiona
 2. Front End View.
 
 == Changelog ==
+= 0.8 =
+* Updated code for ACF 4.0
 
 = 0.7 =
 * Initial Release
