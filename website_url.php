@@ -138,16 +138,23 @@ class Website_field extends acf_Field
 			//If an external link
 			if($internal_link=='true'  && !empty($value['internal']) ){ $external = 'target="_blank"';};
 
-			//If show title
-			if($website_title=='true' && !empty($value['title'])){ $title = $value['title'];}else{$title = ereg_replace("(https?)://", "", $value['url']);};
+				// get value
+				$the_url = $this->nicifyUrl( $value['url'] );
 
-				$value ='<a href="http://'.ereg_replace("(https?)://", "", $value['url']).'" '.$external.'>'.$title.'</a>';
+			//If show title
+			if($website_title=='true' && !empty($value['title'])){ $title = $value['title'];}else{$title = $the_url;};
+
+				$value ='<a href="http://'.$the_url.'" '.$external.'>'.$title.'</a>';
 
 
 
 
 		// return value
-		    return $value;
+		if($the_url!='Invalid URL'){
+		   		 return $value;
+		    }else{
+		    	return $the_url;
+		    }
 
 
 
@@ -209,6 +216,7 @@ class Website_field extends acf_Field
 
 	function create_field($field)
 	{
+
 
 			$field = array_merge( $this->defaults, $field );
 		extract( $field, EXTR_SKIP ); //Declare each item in $field as its own variable i.e.: $name, $value, $label, $time_format, $date_format and $show_week_number
@@ -407,11 +415,55 @@ echo '<td><input type="text" value="' . $value['url'] . '" id="' . $field['name'
 	{
 
 	}
+
+
+
+
+	/** Custom functions to validate URL**/
+
+	function nicifyUrl($url) {
+    $url = urldecode(strtolower($url));
+    $url = $this->stripit($url);
+    // clean up url path
+    $url = explode("/",$url);
+    $arrUrl = parse_url($url[0]);
+    $urlRet = $arrUrl['path'];
+    // valid?
+    if($this->validateTheUrl($urlRet)){
+        return $urlRet;
+    }
+    else{
+        return "Invalid URL";
+    }
+}
+function stripit($url){
+   $url = trim($url);
+   $url = preg_replace("/^(http:\/\/)*(www.)*/is", "", $url);
+   $url = preg_replace("/\/.*$/is" , "" ,$url);
+   return $url;
+}
+function validateTheUrl($url){
+    if (!preg_match("#[a-z0-9-_.]+\.[a-z]{2,4}#i",$url)) {
+        return false;
+    }
+    else if(strpos($url,"@") !== false){
+        return false;
+    }
+    else{
+        return true;
+    }
+}
+
+
 }
 
 
 // create field
 new Website_field();
+
+
+
+
 
 
 /*--------------------------------------- fuctions.php ----------------------------------------------------
