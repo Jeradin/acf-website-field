@@ -308,8 +308,8 @@ echo '<td><input type="text" value="' . $value['url'] . '" id="' . $field['name'
 				'value' => $field['website_title'],
 				'layout' => 'horizontal',
 				'choices' => array(
-					'true' => __('Yes',acf),
-					'false' => __('No',acf)
+					'true' => __('Yes','acf'),
+					'false' => __('No','acf')
 				)
 			));
 
@@ -332,8 +332,8 @@ echo '<td><input type="text" value="' . $value['url'] . '" id="' . $field['name'
 				'value' => $field['internal_link'],
 				'layout' => 'horizontal',
 				'choices' => array(
-					'true' => __('Yes',acf),
-					'false' => __('No',acf)
+					'true' => __('Yes','acf'),
+					'false' => __('No','acf)
 				)
 			));
 ?>
