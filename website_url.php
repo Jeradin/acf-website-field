@@ -333,7 +333,7 @@ echo '<td><input type="text" value="' . $value['url'] . '" id="' . $field['name'
 				'layout' => 'horizontal',
 				'choices' => array(
 					'true' => __('Yes','acf'),
-					'false' => __('No','acf)
+					'false' => __('No','acf')
 				)
 			));
 ?>
