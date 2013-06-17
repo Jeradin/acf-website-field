@@ -34,61 +34,15 @@ class Website_field extends acf_Field
 		$this->name = 'website';
 		$this->label = __('Website');
 		$this->defaults = array(
-			'value'              => ''
-			,'internal_link'      => true
-			, 'website_title'      => true
+			'default_value'              => '',
+			'internal_link'      => 0,
+			'website_title'      => 0,
 
 		);
 
 
 		// do not delete!
     	parent::__construct();
-	}
-
-
-	/*
-	*  load_value()
-	*
-	*  This filter is appied to the $value after it is loaded from the db
-	*
-	*  @type	filter
-	*  @since	3.6
-	*  @date	23/01/13
-	*
-	*  @param	$value - the value found in the database
-	*  @param	$post_id - the $post_id from which the value was loaded from
-	*  @param	$field - the field array holding all the field options
-	*
-	*  @return	$value - the value to be saved in te database
-	*/
-
-	function load_value( $value, $post_id, $field )
-	{
-		return $value;
-	}
-
-
-
-
-
-	/*
-	*  format_value()
-	*
-	*  This filter is appied to the $value after it is loaded from the db and before it is passed to the create_field action
-	*
-	*  @type	filter
-	*  @since	3.6
-	*  @date	23/01/13
-	*
-	*  @param	$value	- the value which was loaded from the database
-	*  @param	$field	- the field array holding all the field options
-	*
-	*  @return	$value	- the modified value
-	*/
-
-	function format_value( $value, $field )
-	{
-		return $value;
 	}
 
 
@@ -160,47 +114,6 @@ class Website_field extends acf_Field
 
 	}
 
-	/*
-	*  load_field()
-	*
-	*  This filter is appied to the $field after it is loaded from the database
-	*
-	*  @type	filter
-	*  @since	3.6
-	*  @date	23/01/13
-	*
-	*  @param	$field - the field array holding all the field options
-	*
-	*  @return	$field - the field array holding all the field options
-	*/
-
-	function load_field( $field )
-	{
-		return $field;
-	}
-
-
-	/*
-	*  update_field()
-	*
-	*  This filter is appied to the $field before it is saved to the database
-	*
-	*  @type	filter
-	*  @since	3.6
-	*  @date	23/01/13
-	*
-	*  @param	$field - the field array holding all the field options
-	*  @param	$post_id - the field group ID (post_type = acf)
-	*
-	*  @return	$field - the modified field
-	*/
-
-	function update_field( $field, $post_id )
-	{
-			return $field;
-	}
-
-
 
 	/*
 	*  create_field()
@@ -214,43 +127,46 @@ class Website_field extends acf_Field
 	*  @param	$field - an array holding all the field's data
 	*/
 
+
+
+
 	function create_field($field)
 	{
 
 
 			$field = array_merge( $this->defaults, $field );
-		extract( $field, EXTR_SKIP ); //Declare each item in $field as its own variable i.e.: $name, $value, $label, $time_format, $date_format and $show_week_number
+			extract( $field, EXTR_SKIP ); //Declare each item in $field as its own variable i.e.: $name, $value, $label, $time_format, $date_format and $show_week_number
+
+		// key is needed in the field names to correctly save the data
+		$key = $field['name'];
 
 		echo  '<table class="widefat "><thead><tr>';
 
-		if ($website_title=='true')echo '<th class="title"><span>Title</span></th>';
+		if ($field['website_title']==1)echo '<th class="title"><span>Title</span></th>';
 		echo '<th class="url"><span>URL</span></th>';
-		if ($internal_link=='true')echo '<th class="internal" style="width:10%;"><span>Internal Link</span></th>';
+		if ($field['internal_link']==1)echo '<th class="internal" style="width:10%;"><span>Internal Link</span></th>';
 
 		echo '</tr></thead><tbody><tr>';
 
 
 
-
-
-			if($website_title=='true'){
-
-				echo '<td><input type="text" value="' . $value['title'] . '" id="' . $field['name'] . '" class="' . $field['class'] . '" name="' . $field['name'].'[title]" /></td>';
+	    if($field['website_title']==1){
+				echo '<td><input type="text" value="' . $field['value']['title'] . '" id="' . $field['name'] . '" class="' . $field['class'] . '" name="'.$key.'[title]" /></td>';
 		}else{
-				echo '<input type="hidden" value="" id="' . $field['name'] . '" class="' . $field['class'] . '" name="' . $field['name'].'[title]" />';
+				echo '<input type="hidden" value="" id="' . $field['name'] . '" class="' . $field['class'] . '" name="'.$key.'[title]" />';
 		}
 
-echo '<td><input type="text" value="' . $value['url'] . '" id="' . $field['name'] . '" class="' . $field['class'] . '" name="' . $field['name'].'[url]" /><p class="description">You can exclude http://, the field will add it, if missing.</p></td>';
+echo '<td><input type="text" value="' . $field['value']['url'] . '" id="' . $field['name'] . '" class="' . $field['class'] . '" name="'.$key.'[url]" /><p class="description">You can exclude http://, the field will add it, if missing.</p></td>';
 
 
-			if($internal_link=='true'){
-			echo '<td><ul class="checkbox_list true_false"><input type="hidden" name="'.$field['name'].'[internal]" value="0" />';
-				$selected = ($value['internal'] == 1) ? 'checked="yes"' : '';
-				echo '<li><label><input type="checkbox" name="'.$field['name'].'[internal]" value="1" ' . $selected . ' />';
+			if($field['internal_link']==1){
+			echo '<td><ul class="checkbox_list true_false"><input type="hidden" name="'.$key.'[internal]" value="0" />';
+				$selected = ($field['value']['internal'] == 1) ? 'checked="yes"' : '';
+				echo '<li><label><input type="checkbox" name="'.$key.'[internal]" value="1" ' . $selected . ' />';
 				echo '</label></li></ul></td>';
 
 			}else{
-				echo '<input type="hidden" name="'.$field['name'].'[internal]" value="0" />';
+				echo '<input type="hidden" name="'.$key.'[internal]" value="0" />';
 			}
 
 
@@ -308,8 +224,8 @@ echo '<td><input type="text" value="' . $value['url'] . '" id="' . $field['name'
 				'value' => $field['website_title'],
 				'layout' => 'horizontal',
 				'choices' => array(
-					'true' => __('Yes','acf'),
-					'false' => __('No','acf')
+					1 => __('Yes','acf'),
+					0 => __('No','acf')
 				)
 			));
 
@@ -332,8 +248,8 @@ echo '<td><input type="text" value="' . $value['url'] . '" id="' . $field['name'
 				'value' => $field['internal_link'],
 				'layout' => 'horizontal',
 				'choices' => array(
-					'true' => __('Yes','acf'),
-					'false' => __('No','acf')
+					1 => __('Yes','acf'),
+					0 => __('No','acf')
 				)
 			));
 ?>
@@ -345,114 +261,43 @@ echo '<td><input type="text" value="' . $value['url'] . '" id="' . $field['name'
 		<?php
 	}
 
-	/*
-	*  input_admin_enqueue_scripts()
-	*
-	*  This action is called in the admin_enqueue_scripts action on the edit screen where your field is created.
-	*  Use this action to add css + javascript to assist your create_field() action.
-	*
-	*  $info	http://codex.wordpress.org/Plugin_API/Action_Reference/admin_enqueue_scripts
-	*  @type	action
-	*  @since	3.6
-	*  @date	23/01/13
-	*/
-
-	function input_admin_enqueue_scripts()
-	{
-
-	}
-
-
-	/*
-	*  input_admin_head()
-	*
-	*  This action is called in the admin_head action on the edit screen where your field is created.
-	*  Use this action to add css and javascript to assist your create_field() action.
-	*
-	*  @info	http://codex.wordpress.org/Plugin_API/Action_Reference/admin_head
-	*  @type	action
-	*  @since	3.6
-	*  @date	23/01/13
-	*/
-
-	function input_admin_head()
-	{
-
-	}
-
-
-	/*
-	*  field_group_admin_enqueue_scripts()
-	*
-	*  This action is called in the admin_enqueue_scripts action on the edit screen where your field is edited.
-	*  Use this action to add css + javascript to assist your create_field_options() action.
-	*
-	*  $info	http://codex.wordpress.org/Plugin_API/Action_Reference/admin_enqueue_scripts
-	*  @type	action
-	*  @since	3.6
-	*  @date	23/01/13
-	*/
-
-	function field_group_admin_enqueue_scripts()
-	{
-
-	}
-
-
-	/*
-	*  field_group_admin_head()
-	*
-	*  This action is called in the admin_head action on the edit screen where your field is edited.
-	*  Use this action to add css and javascript to assist your create_field_options() action.
-	*
-	*  @info	http://codex.wordpress.org/Plugin_API/Action_Reference/admin_head
-	*  @type	action
-	*  @since	3.6
-	*  @date	23/01/13
-	*/
-
-	function field_group_admin_head()
-	{
-
-	}
 
 
 
+		/** Custom functions to validate URL**/
 
-	/** Custom functions to validate URL**/
-
-	function nicifyUrl($url) {
-    $url = urldecode(strtolower($url));
-    $url = $this->stripit($url);
-    // clean up url path
-    $url = explode("/",$url);
-    $arrUrl = parse_url($url[0]);
-    $urlRet = $arrUrl['path'];
-    // valid?
-    if($this->validateTheUrl($urlRet)){
-        return $urlRet;
-    }
-    else{
-        return "Invalid URL";
-    }
-}
-function stripit($url){
-   $url = trim($url);
-   $url = preg_replace("/^(http:\/\/)*(www.)*/is", "", $url);
-   $url = preg_replace("/\/.*$/is" , "" ,$url);
-   return $url;
-}
-function validateTheUrl($url){
-    if (!preg_match("#[a-z0-9-_.]+\.[a-z]{2,4}#i",$url)) {
-        return false;
-    }
-    else if(strpos($url,"@") !== false){
-        return false;
-    }
-    else{
-        return true;
-    }
-}
+		function nicifyUrl($url) {
+		    $url = urldecode(strtolower($url));
+		    $url = $this->stripit($url);
+		    // clean up url path
+		    $url = explode("/",$url);
+		    $arrUrl = parse_url($url[0]);
+		    $urlRet = $arrUrl['path'];
+		    // valid?
+		    if($this->validateTheUrl($urlRet)){
+		        return $urlRet;
+		    }
+		    else{
+		        return "Invalid URL";
+		    }
+		}
+		function stripit($url){
+		   $url = trim($url);
+		   $url = preg_replace("/^(http:\/\/)*(www.)*/is", "", $url);
+		   $url = preg_replace("/\/.*$/is" , "" ,$url);
+		   return $url;
+		}
+		function validateTheUrl($url){
+		    if (!preg_match("#[a-z0-9-_.]+\.[a-z]{2,4}#i",$url)) {
+		        return false;
+		    }
+		    else if(strpos($url,"@") !== false){
+		        return false;
+		    }
+		    else{
+		        return true;
+		    }
+		}
 
 
 }
