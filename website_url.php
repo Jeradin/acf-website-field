@@ -267,6 +267,7 @@ echo '<td><input type="text" value="' . $field['value']['url'] . '" id="' . $fie
 		/** Custom functions to validate URL**/
 
 		function nicifyUrl($url) {
+			$fullurl = $url;
 		    $url = urldecode(strtolower($url));
 		    $url = $this->stripit($url);
 		    // clean up url path
@@ -275,7 +276,7 @@ echo '<td><input type="text" value="' . $field['value']['url'] . '" id="' . $fie
 		    $urlRet = $arrUrl['path'];
 		    // valid?
 		    if($this->validateTheUrl($urlRet)){
-		        return $urlRet;
+		        return $fullurl;
 		    }
 		    else{
 		        return "Invalid URL";
