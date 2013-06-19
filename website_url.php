@@ -90,13 +90,13 @@ class Website_field extends acf_Field
 
 		$external = '';
 			//If an external link
-			if($internal_link=='true'  && !empty($value['internal']) ){ $external = 'target="_blank"';};
+			if($internal_link==1  && !empty($value['internal']) ){ $external = 'target="_blank"';};
 
 				// get value
 				$the_url = $this->nicifyUrl( $value['url'] );
 
 			//If show title
-			if($website_title=='true' && !empty($value['title'])){ $title = $value['title'];}else{$title = $the_url;};
+			if($website_title==1 && !empty($value['title'])){ $title = $value['title'];}else{$title = $the_url;};
 
 				$value ='<a href="http://'.$the_url.'" '.$external.'>'.$title.'</a>';
 
