@@ -47,8 +47,14 @@ activated. This is not a standalone plugin for WordPress, it only adds additiona
 2. Front End View.
 
 == Changelog ==
+= 1.1 =
+* Fixed bugs
+* -trailing urls
+* -not howing up in the admin
+* -other cleanup
+
 = 1.0 =
-* Made it an upload able plugin
+* Made it an uploadable plugin
 
 = 0.8 =
 * Updated code for ACF 4.0
