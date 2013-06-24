@@ -1,23 +1,21 @@
 <?php
 
 /*
-*  my-field.php
+*  Website URL
 *
-*  This file acts as a template for creating a new field type in the
-*  Advanced Custom Fields plugin.
+*  TThis field lets you add website links with titles and a checkbox to make an external link or internal link.
 *
-*  @since	4.0.0
-*  @date	DD/MM/YYYY
+*  @since	1.1
+*  @date	06/24/2013
 *
-*  @info	http://www.advancedcustomfields.com/docs/tutorials/creating-a-new-field-type/
+*  @info	https://github.com/Jeradin/acf-website-field
 */
 
 class Website_field extends acf_Field
 {
 
 	// vars
-	var  $defaults // will hold default field options
-		;
+	var  $defaults;
 
 	/*
 	*  __construct
@@ -69,21 +67,6 @@ class Website_field extends acf_Field
 		// defaults
 		$field = array_merge($this->defaults, $field);
 		extract( $field, EXTR_SKIP ); //Declare each item in $field as its own variable i.e.: $name, $value, $label, $time_format, $date_format and $show_week_number
-/*
-		// format value
-		$value = explode('|', $value);
-
-		if( $field['val'] == 'address' )
-		{
-			$value = array( 'coordinates' => $value[1], 'address' => $value[0] );
-		}
-		else
-		{
-			$value = $value[1];
-		}
-
-
-		return $value;*/
 
 
 		// format value
@@ -204,10 +187,6 @@ echo '<td><input type="text" value="' . $field['value']['url'] . '" id="' . $fie
 		// key is needed in the field names to correctly save the data
 		$key = $field['name'];
 
-		// defaults
-		//$field['website_title'] = isset($field['website_title']) ? $field['website_title'] : '';
-
-		//$field['internal_link'] = isset($field['internal_link']) ? $field['internal_link'] : '';
 
 ?>
 		<tr class="field_option field_option_<?php echo $this->name; ?>">
@@ -307,19 +286,5 @@ echo '<td><input type="text" value="' . $field['value']['url'] . '" id="' . $fie
 // create field
 new Website_field();
 
-
-
-
-
-
-/*--------------------------------------- fuctions.php ----------------------------------------------------
-
-add_action('acf/register_fields', 'my_register_fields');
-
-function my_register_fields()
-{
-	include_once('fields/my-field.php');
-}
-*/
 
 ?>
