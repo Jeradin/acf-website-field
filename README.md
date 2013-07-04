@@ -8,7 +8,7 @@ Stable tag: 4.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Version: ~Current Version:1.3~
+Version: ~Current Version:1.4~
 
 Adds a Website Field to Advanced Custom Fields. Select if link should be an external link, if it should show title or the url.
 
@@ -49,7 +49,7 @@ activated. This is not a standalone plugin for WordPress, it only adds additiona
 
 ## Changelog ##
 
-### 1.3 ###
+### 1.4 ###
 * Auto Update from github!
 
 ### 1.2 ###
