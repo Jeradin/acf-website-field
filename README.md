@@ -1,9 +1,14 @@
 === Advanced Custom Fields - Website field add-on ===
-Contributors: Jeradin
+Contributors: Jeradin, jmslbam 
+Donate link: http://example.com/  
 Tags: acf, acf add-on, website url, website title
-Requires at least: 4.0
-Tested up to: 3.3.1
-Stable tag: 1.0
+Requires at least: 4.0  
+Tested up to: 3.3.1 
+Stable tag: 4.3
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+Version: ~Current Version:1.4~
 
 Adds a Website Field to Advanced Custom Fields. Select if link should be an external link, if it should show title or the url.
 
@@ -23,10 +28,6 @@ https://github.com/Jeradin/ACF-URL-Field
 = Bugs, Questions or Suggestions =
 https://github.com/Jeradin/ACF-URL-Field/issues
 
-= Todo =
-* Cleanup code
-* alter code form feedback
-*improve front end look
 
 == Installation ==
 
@@ -46,23 +47,26 @@ activated. This is not a standalone plugin for WordPress, it only adds additiona
 1. Website Field.
 2. Front End View.
 
-== Changelog ==
+## Changelog ##
 
-= 1.2 =
+### 1.4 ###
+* Auto Update from github!
+
+### 1.2 ###
 * Merged fixes from jmslbam
 * -slight cleanup
 
-= 1.1 =
+### 1.1
 * Fixed bugs
 * -trailing urls
 * -not howing up in the admin
 * -other cleanup
 
-= 1.0 =
+### 1.0
 * Made it an uploadable plugin
 
-= 0.8 =
+### 0.8
 * Updated code for ACF 4.0
 
-= 0.7 =
+### 0.7
 * Initial Release
