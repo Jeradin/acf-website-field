@@ -3,7 +3,7 @@
 Plugin Name: Advanced Custom Fields: website_field
 Plugin URI: https://github.com/Jeradin/ACF-URL-Field
 Description: Website Title field for Advanced Custom Fields
-Version: 0.8
+Version: 1.2
 Author: Geet Jacobs
 Author URI: http://anagr.am
 License: GPLv2 or later
