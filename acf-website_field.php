@@ -1,7 +1,7 @@
 <?php
 /*
-Plugin Name: Advanced Custom Fields: website_field
-Plugin URI: https://github.com/Jeradin/ACF-URL-Field
+Plugin Name: Advanced Custom Fields: Website Field
+Plugin URI: https://github.com/Jeradin/acf-website-field
 Description: Website Title field for Advanced Custom Fields
 Version: 1.2
 Author: Geet Jacobs
