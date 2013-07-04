@@ -48,23 +48,23 @@ activated. This is not a standalone plugin for WordPress, it only adds additiona
 1. Website Field.
 2. Front End View.
 
-== Changelog ==
+## Changelog ##
 
-= 1.2 =
+### 1.2 ###
 * Merged fixes from jmslbam
 * -slight cleanup
 
-= 1.1 =
+### 1.1
 * Fixed bugs
 * -trailing urls
 * -not howing up in the admin
 * -other cleanup
 
-= 1.0 =
+### 1.0
 * Made it an uploadable plugin
 
-= 0.8 =
+### 0.8
 * Updated code for ACF 4.0
 
-= 0.7 =
+### 0.7
 * Initial Release
