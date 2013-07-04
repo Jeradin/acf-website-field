@@ -23,10 +23,10 @@ The Website field gives a few basic options:
 -Open in Current Window - default will make all URLs open a new browser window for external sites. ( if checked to Yes, than the admin section will have a checkbox to specify if the link should open the current window.)
 
 = Source Repository on GitHub =
-https://github.com/Jeradin/ACF-URL-Field
+https://github.com/Jeradin/acf-website-field
 
 = Bugs, Questions or Suggestions =
-https://github.com/Jeradin/ACF-URL-Field/issues
+https://github.com/Jeradin/acf-website-field/issues
 
 
 == Installation ==
