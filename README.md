@@ -4,7 +4,7 @@ Tags: acf, acf add-on, website url, website title
 Requires at least: 4.0
 Tested up to: 3.3.1
 Stable tag: 1.0
-
+Version ~Current Version:1.2~
 Adds a Website Field to Advanced Custom Fields. Select if link should be an external link, if it should show title or the url.
 
 == Description ==
