@@ -129,7 +129,6 @@ class Website_field extends acf_Field
 		$link_title = ( isset($value['title']) ) ? $value['title'] : '';
 
 
-
 		echo  '<table class="widefat "><thead><tr>';
 
 		if ($field['website_title']==1)echo '<th class="title"><span>Title</span></th>';
@@ -141,13 +140,12 @@ class Website_field extends acf_Field
 
 
 	    if( isset( $field['website_title'] ) ){
-	    	
 				echo '<td><input type="text" value="' . $link_title . '" id="' . $key . '" class="' . $class . '" name="'.$key.'[title]" /></td>';
-		}else{
-				echo '<input type="hidden" value="" id="' . $field['name'] . '" class="' . $field['class'] . '" name="'.$key.'[title]" />';
+		} else {
+				echo '<input type="hidden" value="" id="' . $field['name'] . '" class="' . $class . '" name="'.$key.'[title]" />';
 		}
 
-echo '<td><input type="text" value="' . $link_url . '" id="' . $field['name'] . '" class="' . $field['class'] . '" name="'.$key.'[url]" /><p class="description">You can exclude http://, the field will add it, if missing.</p></td>';
+echo '<td><input type="text" value="' . $link_url . '" id="' . $field['name'] . '" class="' . $class . '" name="'.$key.'[url]" /><p class="description">You can exclude http://, the field will add it, if missing.</p></td>';
 
 
 			if($field['internal_link']==1){
