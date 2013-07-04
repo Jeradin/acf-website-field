@@ -47,6 +47,11 @@ activated. This is not a standalone plugin for WordPress, it only adds additiona
 2. Front End View.
 
 == Changelog ==
+
+= 1.2 =
+* Merged fixes from jmslbam
+* -slight cleanup
+
 = 1.1 =
 * Fixed bugs
 * -trailing urls
