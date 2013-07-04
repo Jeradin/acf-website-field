@@ -1,9 +1,11 @@
 === Advanced Custom Fields - Website field add-on ===
-Contributors: Jeradin
+Contributors: Jeradin, jmslbam 
+Donate link: http://example.com/  
 Tags: acf, acf add-on, website url, website title
-Requires at least: 4.0
-Tested up to: 3.3.1
-Stable tag: 1.0
+Requires at least: 4.0  
+Tested up to: 3.3.1 
+Stable tag: 4.3
+
 
 Version: ~Current Version:1.3~
 
@@ -49,6 +51,9 @@ activated. This is not a standalone plugin for WordPress, it only adds additiona
 2. Front End View.
 
 ## Changelog ##
+
+### 1.3 ###
+* Auto Update from github!
 
 ### 1.2 ###
 * Merged fixes from jmslbam
