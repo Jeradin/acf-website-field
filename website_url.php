@@ -117,11 +117,17 @@ class Website_field extends acf_Field
 	{
 
 
-			$field = array_merge( $this->defaults, $field );
-			extract( $field, EXTR_SKIP ); //Declare each item in $field as its own variable i.e.: $name, $value, $label, $time_format, $date_format and $show_week_number
+		$field = array_merge( $this->defaults, $field );
+		extract( $field, EXTR_SKIP ); //Declare each item in $field as its own variable i.e.: $name, $value, $label, $time_format, $date_format and $show_week_number
 
 		// key is needed in the field names to correctly save the data
-		$key = $field['name'];
+		$key 	= $field['name'];
+		$class 	= $field['class'];
+		
+		$value 		= ( isset($field['value']) ) ? $field['value'] : false;
+		$link_url 	= ( isset($value['url']) ) ? $value['url'] : '';
+		$link_title = ( isset($value['title']) ) ? $value['title'] : '';
+
 
 		echo  '<table class="widefat "><thead><tr>';
 
@@ -133,13 +139,13 @@ class Website_field extends acf_Field
 
 
 
-	    if($field['website_title']==1){
-				echo '<td><input type="text" value="' . $field['value']['title'] . '" id="' . $field['name'] . '" class="' . $field['class'] . '" name="'.$key.'[title]" /></td>';
-		}else{
-				echo '<input type="hidden" value="" id="' . $field['name'] . '" class="' . $field['class'] . '" name="'.$key.'[title]" />';
+	    if( isset( $field['website_title'] ) ){
+				echo '<td><input type="text" value="' . $link_title . '" id="' . $key . '" class="' . $class . '" name="'.$key.'[title]" /></td>';
+		} else {
+				echo '<input type="hidden" value="" id="' . $field['name'] . '" class="' . $class . '" name="'.$key.'[title]" />';
 		}
 
-echo '<td><input type="text" value="' . $field['value']['url'] . '" id="' . $field['name'] . '" class="' . $field['class'] . '" name="'.$key.'[url]" /><p class="description">You can exclude http://, the field will add it, if missing.</p></td>';
+echo '<td><input type="text" value="' . $link_url . '" id="' . $field['name'] . '" class="' . $class . '" name="'.$key.'[url]" /><p class="description">You can exclude http://, the field will add it, if missing.</p></td>';
 
 
 			if($field['internal_link']==1){
