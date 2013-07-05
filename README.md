@@ -49,6 +49,9 @@ activated. This is not a standalone plugin for WordPress, it only adds additiona
 
 ## Changelog ##
 
+### 1.5 ###
+* Can now return array instead of formatted link.
+
 ### 1.4 ###
 * Auto Update from github!
 
