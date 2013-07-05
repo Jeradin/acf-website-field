@@ -8,7 +8,7 @@ Stable tag: 4.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Version: ~Current Version:1.4~
+Version: ~Current Version:1.5~
 
 Adds a Website Field to Advanced Custom Fields. Select if link should be an external link, if it should show title or the url.
 
