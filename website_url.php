@@ -63,36 +63,53 @@ class Website_field extends acf_Field
 	function format_value_for_api(  $value, $post_id, $field )
 	{
 
-
 		// defaults
 		$field = array_merge($this->defaults, $field);
 		extract( $field, EXTR_SKIP ); //Declare each item in $field as its own variable i.e.: $name, $value, $label, $time_format, $date_format and $show_week_number
 
 
-		// format value
+		// format
+		if( $field['save_format'] == 0 )
+		{
 
-		$external = '';
+			// format value
+
+			$external = '';
 			//If an external link
 			if($internal_link==1  && !empty($value['internal']) ){ $external = 'target="_blank"';};
 
-				// get value
-				$the_url = $this->nicifyUrl( $value['url'] );
+			// get value
+			$the_url = $this->nicifyUrl( $value['url'] );
 
 			//If show title
 			if($website_title==1 && !empty($value['title'])){ $title = $value['title'];}else{$title = $the_url;};
 
-				$value ='<a href="http://'.$the_url.'" '.$external.'>'.$title.'</a>';
+			$value ='<a href="http://'.$the_url.'" '.$external.'>'.$title.'</a>';
 
 
+			// return link
+			if($the_url!='Invalid URL'){
+				return $value;
+			}else{
+				return $the_url;
+			}
 
 
-		// return value
-		if($the_url!='Invalid URL'){
-		   		 return $value;
-		    }else{
-		    	return $the_url;
-		    }
+		}
+		else
+		{
 
+			//return array
+			$value = array(
+				'title' => $value['title'],
+				'url' => $value['url'],
+				'external' => $value['internal']
+			);
+
+			return $value;
+
+
+		}
 
 
 	}
@@ -131,7 +148,7 @@ class Website_field extends acf_Field
 
 		echo  '<table class="widefat "><thead><tr>';
 
-		if ($field['website_title']==1)echo '<th class="title"><span>Title</span></th>';
+		 if(  $field['website_title']  ) echo '<th class="title"><span>Title</span></th>';
 		echo '<th class="url"><span>URL</span></th>';
 		if ($field['internal_link']==1)echo '<th class="internal" style="width:10%;"><span>Internal Link</span></th>';
 
@@ -139,7 +156,7 @@ class Website_field extends acf_Field
 
 
 
-	    if( isset( $field['website_title'] ) ){
+	    if(  $field['website_title']  ){
 				echo '<td><input type="text" value="' . $link_title . '" id="' . $key . '" class="' . $class . '" name="'.$key.'[title]" /></td>';
 		} else {
 				echo '<input type="hidden" value="" id="' . $field['name'] . '" class="' . $class . '" name="'.$key.'[title]" />';
