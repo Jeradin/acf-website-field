@@ -63,6 +63,13 @@ class Website_field extends acf_Field
 	function format_value_for_api(  $value, $post_id, $field )
 	{
 
+
+		// validate
+		if( !$value )
+		{
+			return false;
+		}
+
 		// defaults
 		$field = array_merge($this->defaults, $field);
 		extract( $field, EXTR_SKIP ); //Declare each item in $field as its own variable i.e.: $name, $value, $label, $time_format, $date_format and $show_week_number
@@ -140,7 +147,7 @@ class Website_field extends acf_Field
 		// key is needed in the field names to correctly save the data
 		$key 	= $field['name'];
 		$class 	= $field['class'];
-		
+
 		$value 		= ( isset($field['value']) ) ? $field['value'] : false;
 		$link_url 	= ( isset($value['url']) ) ? $value['url'] : '';
 		$link_title = ( isset($value['title']) ) ? $value['title'] : '';
