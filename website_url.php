@@ -35,6 +35,7 @@ class Website_field extends acf_Field
 			'default_value'              => '',
 			'internal_link'      => 0,
 			'website_title'      => 0,
+			'output_format'      => 0
 
 		);
 
@@ -76,7 +77,7 @@ class Website_field extends acf_Field
 
 
 		// format
-		if( $field['save_format'] == 0 )
+		if( $field['output_format'] == 0 )
 		{
 
 			// format value
@@ -265,7 +266,27 @@ echo '<td><input type="text" value="' . $link_url . '" id="' . $field['name'] . 
 			</td>
 
 		</tr>
+				<tr class="field_option field_option_<?php echo $this->name; ?>">
+			<td class="label">
+				<label><?php _e("Return array instead of Link",'acf'); ?></label>
+				<p class="description">If "Yes" than the get_field will return an array</p>
+			</td>
+			<td>
+				<?php
+		do_action('acf/create_field', array(
+				'type' => 'radio',
+				'name' => 'fields['.$key.'][output_format]',
+				'value' => $field['output_format'],
+				'layout' => 'horizontal',
+				'choices' => array(
+					1 => __('Yes','acf'),
+					0 => __('No','acf')
+				)
+			));
+?>
+			</td>
 
+		</tr>
 
 		<?php
 	}
