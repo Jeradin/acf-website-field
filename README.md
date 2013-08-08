@@ -10,7 +10,7 @@ License: GPLv2 or later
 
 License URI: http://www.gnu.org/licenses/gpl-2.0.html 
 
-Version: ~Current Version:1.5.1~
+Version: ~Current Version:1.5.5~
 
 == Description ==
 Adds a Website Field to Advanced Custom Fields. Select if link should be an external link, if it should show title or the url.
@@ -50,9 +50,11 @@ activated. This is not a standalone plugin for WordPress, it only adds additiona
 2. Front End View.
 
 ## Changelog ##
+### 1.5.5 ###
+* Bug fixes
+
 ### 1.5.1 ###
 * Fixing blank website fields.
-
 
 ### 1.5 ###
 * Can now return array instead of formatted link.
