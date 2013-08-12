@@ -66,7 +66,7 @@ class Website_field extends acf_Field
 
 
 		// validate
-		if( !$value )
+		if( empty($value['url'] ) )
 		{
 			return false;
 		}
