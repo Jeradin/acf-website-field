@@ -10,7 +10,7 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
-
+/*
 include_once('updater.php');
 
 
@@ -30,7 +30,7 @@ if (is_admin()) { // note the use of is_admin() to double check that this is hap
     );
     new WP_GitHub_Updater($config);
 }
-
+*/
 class acf_website_field_plugin
 {
 	/*
