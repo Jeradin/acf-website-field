@@ -2,8 +2,9 @@
 /*
 Plugin Name: Advanced Custom Fields: Website Field
 Plugin URI: https://github.com/Jeradin/acf-website-field
+GitHub Plugin URI: https://github.com/Jeradin/acf-website-field
 Description: Website Title field for Advanced Custom Fields
-Version: 1.5.6
+Version: 1.5.7
 Author: Geet Jacobs
 Author URI: http://anagr.am
 License: GPLv2 or later
@@ -31,6 +32,14 @@ if (is_admin()) { // note the use of is_admin() to double check that this is hap
     new WP_GitHub_Updater($config);
 }
 */
+
+if( is_admin() ) {
+	require_once( 'classes/class-plugin-updater.php' );
+}
+
+
+
+
 class acf_website_field_plugin
 {
 	/*
