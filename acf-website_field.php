@@ -34,7 +34,7 @@ if (is_admin()) { // note the use of is_admin() to double check that this is hap
 */
 
 if( is_admin() ) {
-	require_once( 'classes/class-plugin-updater.php' );
+	require_once( 'class-plugin-updater.php' );
 }
 
 
