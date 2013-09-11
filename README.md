@@ -49,6 +49,9 @@ activated. This is not a standalone plugin for WordPress, it only adds additiona
 2. Front End View.
 
 ## Changelog ##
+### 1.5.9 ###
+* Fixed issue when field was required
+
 ### 1.5.8 ###
 * Replaced with better auto updater code
 
