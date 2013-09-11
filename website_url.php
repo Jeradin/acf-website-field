@@ -167,7 +167,7 @@ class Website_field extends acf_Field
 	    if(  $field['website_title']  ){
 				echo '<td><input type="text" value="' . $link_title . '" id="' . $key . '" class="' . $class . '" name="'.$key.'[title]" /></td>';
 		} else {
-				echo '<input type="hidden" value="" id="' . $field['name'] . '" class="' . $class . '" name="'.$key.'[title]" />';
+				//echo '<input type="hidden" value="" id="' . $field['name'] . '" class="' . $class . '" name="'.$key.'[title]" />';
 		}
 
 echo '<td><input type="text" value="' . $link_url . '" id="' . $field['name'] . '" class="' . $class . '" name="'.$key.'[url]" /><p class="description">You can exclude http://, the field will add it, if missing.</p></td>';
@@ -175,12 +175,12 @@ echo '<td><input type="text" value="' . $link_url . '" id="' . $field['name'] . 
 
 			if($field['internal_link']==1){
 			echo '<td><ul class="checkbox_list true_false"><input type="hidden" name="'.$key.'[internal]" value="0" />';
-				$selected = ($field['value']['internal'] == 1) ? 'checked="yes"' : '';
+				$selected = (isset($field['value']['internal']) && $field['value']['internal'] == 1) ? 'checked="yes"' : '';
 				echo '<li><label><input type="checkbox" name="'.$key.'[internal]" value="1" ' . $selected . ' />';
 				echo '</label></li></ul></td>';
 
 			}else{
-				echo '<input type="hidden" name="'.$key.'[internal]" value="0" />';
+				//echo '<input type="hidden" name="'.$key.'[internal]" value="0" />';
 			}
 
 
