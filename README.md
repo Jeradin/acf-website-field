@@ -48,6 +48,12 @@ activated. This is not a standalone plugin for WordPress, it only adds additiona
 1. Website Field.
 2. Front End View.
 
+
+## Future Features ##
+
+Add admin validation of URL.
+
+
 ## Changelog ##
 ### 1.5.9 ###
 * Fixed issue when field was required
