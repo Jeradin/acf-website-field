@@ -158,7 +158,7 @@ class Website_field extends acf_Field
 
 		 if(  $field['website_title']  ) echo '<th class="title"><span>Title</span></th>';
 		echo '<th class="url"><span>URL</span></th>';
-		if ($field['internal_link']==1)echo '<th class="internal" style="width:10%;"><span>Internal Link</span></th>';
+		if ($field['internal_link']==1)echo '<th class="internal" style="width:10%;"><span>Current Window</span></th>';
 
 		echo '</tr></thead><tbody><tr>';
 
