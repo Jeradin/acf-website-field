@@ -55,6 +55,9 @@ Add admin validation of URL.
 
 
 ## Changelog ##
+### 1.5.9.5 ###
+* Fixed issue with target link and some wording updates
+
 ### 1.5.9 ###
 * Fixed issue when field was required
 
