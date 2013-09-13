@@ -82,9 +82,9 @@ class Website_field extends acf_Field
 
 			// format value
 
-			$external = '';
+			$external = 'target="_blank"';
 			//If an external link
-			if($internal_link==1  && !empty($value['internal']) ){ $external = 'target="_blank"';};
+			if(  $internal_link==1  && !empty($value['internal']) ){ $external = '';};
 
 			// get value
 			$the_url = $this->nicifyUrl( $value['url'] );
