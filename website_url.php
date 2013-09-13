@@ -248,7 +248,7 @@ echo '<td><input type="text" value="' . $link_url . '" id="' . $field['name'] . 
 		<tr class="field_option field_option_<?php echo $this->name; ?>">
 			<td class="label">
 				<label><?php _e("Open in Current Window?",'acf'); ?></label>
-				<p class="description">If "Yes" than the user can check a box to have the link be Internal</p>
+				<p class="description">If "Yes" than the user can check a box to have the link open in current window.</p>
 			</td>
 			<td>
 				<?php
