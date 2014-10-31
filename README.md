@@ -14,6 +14,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 == Description ==
 Adds a Website Field to Advanced Custom Fields. Select if link should be an external link, if it should show title or the url.
 
+This works with ACF 4 and ACF5 / ACF5Pro
+
 This is an add-on for the [Advanced Custom Fields](http://wordpress.org/extend/plugins/advanced-custom-fields/)
 WordPress plugin and will not provide any functionality to WordPress unless Advanced Custom Fields is installed
 and activated.
