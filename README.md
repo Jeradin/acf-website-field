@@ -60,7 +60,11 @@ or this (if you select current window option):
 If you have the field return an array:
 ```
 get_field('website')
-array(3) { ["title"]=> string(4) "Example" ["url"]=> string(20) "http://example.com" ["external"]=> string(1) "1" } 
+array(3) { 
+	["title"]=> string(4) "Example" 
+	["url"]=> string(20) "http://example.com" 
+	["external"]=> string(1) "1" 
+} 
 ```
 
 == Frequently Asked Questions ==
