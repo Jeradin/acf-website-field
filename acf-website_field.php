@@ -12,11 +12,6 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
 
-if( is_admin() ) {
-	require_once( 'class-plugin-updater.php' );
-}
-
-
 
 
 class acf_website_field_plugin
@@ -32,8 +27,15 @@ class acf_website_field_plugin
 	function __construct()
 	{
 
-		// version 4+
-		add_action('acf/register_fields', array($this, 'register_fields'));
+		// version 4
+		add_action('acf/register_fields', array($this, 'register_field_website_v4'));
+
+		// version 5
+		add_action('acf/include_field_types', array($this, 'register_field_website_v5'));
+
+		add_action( 'admin_enqueue_scripts', array( $this, 'register_admin_styles' ) );
+
+		add_action( 'admin_enqueue_scripts', array( $this, 'website_val_enqueue_styles_scripts' ) );
 
 
 	}
@@ -47,10 +49,29 @@ class acf_website_field_plugin
 	*  @created: 1/04/13
 	*/
 
-	function register_fields()
+	function register_field_website_v4()
 	{
-		include_once('website_url.php');
+		include_once('website_url_v4.php');
 	}
+
+	function register_field_website_v5()
+	{
+		include_once('website_url_v5.php');
+	}
+
+
+
+
+	function website_val_enqueue_styles_scripts() {
+	    wp_enqueue_script( 'acf-custom-validation', plugins_url( 'acf-website-field.js', __FILE__ ) );
+	}
+
+	/**
+ 	 * Registers and enqueues admin-specific styles.
+ 	 */
+ 	public function register_admin_styles() {
+ 		wp_enqueue_style( 'acf-website-field', plugins_url( 'acf-website-field.css', __FILE__  ) );
+ 	} // end register_admin_styles
 
 
 }

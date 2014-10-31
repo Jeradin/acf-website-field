@@ -1,0 +1,19 @@
+.form-table .field_type-website th,
+.form-table .field_type-website td {
+	padding: 10px;
+}
+
+.form-table .field_type-website tbody td {
+	vertical-align: top;
+}
+
+
+.urlValidate {
+width: 100%;
+padding: 5px;
+resize: none;
+margin: 0;
+box-sizing: border-box;
+font-size: 14px;
+line-height: 15px;
+}
