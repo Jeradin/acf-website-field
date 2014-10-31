@@ -82,7 +82,7 @@ activated. This is not a standalone plugin for WordPress, it only adds additiona
 
 ## Changelog ##
 ### 2.0 ###
-* Removed Auto github updater built in, but use thier plugin : https://github.com/afragen/github-updater
+* Removed Auto github updater bundle, best to install their plugin : https://github.com/afragen/github-updater
 * Moved validation to the admin section, added HTML5 validation along with basic URL validation.
 * Added placeholder text thanks @chellman
 * Now works with ACF4 & ACF5 thanks @patrickhafner
