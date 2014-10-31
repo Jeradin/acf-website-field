@@ -1,9 +1,9 @@
 === Advanced Custom Fields - Website field add-on ===
 
-Contributors: Jeradin, jmslbam  
+Contributors: Jeradin, jmslbam, patrickhafner 
 Tags: acf, acf add-on, website url, website title  
 Requires at least: 4.0   
-Tested up to: 3.3.1  
+Tested up to: 4.0
 Stable tag: 4.3
 
 License: GPLv2 or later 
@@ -55,6 +55,13 @@ Add admin validation of URL.
 
 
 ## Changelog ##
+### 2.0 ###
+* Removed Auto github updater (great plugin you can find here: https://github.com/afragen/github-updater)
+* Moved validation to the admin section, added HTML5 validation along with basic URL validation.
+* Added placeholder text thanks @chellman
+* Now works with ACF4 & ACF5 thanks @patrickhafner
+* Fixed display of field in seamless mode
+
 ### 1.5.9.5 ###
 * Fixed issue with target link and some wording updates
 
