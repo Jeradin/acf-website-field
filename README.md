@@ -39,18 +39,28 @@ The Website Field plugin needs to be added to your themes.
 	1. Download the zip file and upload as any Wordpress plugin.
 
 == How to Use ==
+```
 <?php the_field('website')?>">
+```
 will output:
+```
 <a href="http://www.example.com" target="_blank">http://www.example.com</a>
+```
 
 or this (if you select title option):
+```
 <a href="http://www.example.com" target="_blank">Catalog</a>
+```
 
 or this (if you select current window option):
+```
 <a href="http://www.example.com">Example</a>
+```
 
 If you have the field return an array:
+```
 array(3) { ["title"]=> string(4) "Example" ["url"]=> string(20) "http://example.com" ["external"]=> string(1) "1" } 
+```
 
 == Frequently Asked Questions ==
 
