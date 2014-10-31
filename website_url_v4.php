@@ -64,7 +64,6 @@ class Website_field extends acf_Field
 	function format_value_for_api(  $value, $post_id, $field )
 	{
 
-
 		// validate
 		if( empty($value['url'] ) )
 		{
