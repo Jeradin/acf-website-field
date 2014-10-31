@@ -40,7 +40,7 @@ The Website Field plugin needs to be added to your themes.
 
 == How to Use ==
 ```
-<?php the_field('website')?>">
+<?php the_field('website')?>
 ```
 will output:
 ```
@@ -59,6 +59,7 @@ or this (if you select current window option):
 
 If you have the field return an array:
 ```
+get_field('website')
 array(3) { ["title"]=> string(4) "Example" ["url"]=> string(20) "http://example.com" ["external"]=> string(1) "1" } 
 ```
 
