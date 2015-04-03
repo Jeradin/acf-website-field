@@ -64,7 +64,7 @@ class acf_website_field_plugin
 
 
 	function website_val_enqueue_styles_scripts() {
-	    wp_enqueue_script( 'acf-custom-validation', plugins_url( 'acf-website-field.js', __FILE__ ) );
+	    //wp_enqueue_script( 'acf-custom-validation', plugins_url( 'acf-website-field.js', __FILE__ ) );
 	}
 
 	/**

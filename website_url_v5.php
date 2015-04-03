@@ -235,7 +235,7 @@ class Website_field extends acf_Field
 	*  @param	$field	- an array holding all the field's data
 	*/
 
-	function create_options($field)
+	function render_field_settings($field)
 	{
 
 
@@ -248,76 +248,57 @@ class Website_field extends acf_Field
 		$key = $field['name'];
 
 
-?>
-		<tr class="field_option field_option_<?php echo $this->name; ?>">
-			<td class="label">
-				<label><?php _e("Show Title?",'acf'); ?></label>
-				<p class="description">If "Yes" than the user will have a field to enter a address title</p>
-			</td>
-			<td>
-				<?php
 
-		do_action('acf/render_field', array(
-				'type' => 'radio',
-				'name' => 'fields['.$key.'][website_title]',
-				'value' => $field['website_title'],
-				'layout' => 'horizontal',
-				'choices' => array(
-					1 => __('Yes','acf'),
-					0 => __('No','acf')
-				)
-			));
+		// encode choices (convert from array)
+		//$field['choices'] = acf_encode_choices($field['choices']);
+		//$field['default_value'] = acf_encode_choices($field['default_value']);
 
 
-?>
-			</td>
+		// layout
+		acf_render_field_setting( $field, array(
+			'label'			=> __('Show Title?','acf'),
+			'instructions'	=> 'If "Yes" than the user will have a field to enter a address title',
+			'type'			=> 'radio',
+			'name'			=> 'website_title',
+			'layout'		=> 'horizontal',
+			'choices'		=> array(
+				'vertical'		=> __("Yes",'acf'),
+				'horizontal'	=> __("No",'acf')
+			)
+		));
 
-		</tr>
 
-		<tr class="field_option field_option_<?php echo $this->name; ?>">
-			<td class="label">
-				<label><?php _e("Open in Current Window?",'acf'); ?></label>
-				<p class="description">If "Yes" than the user can check a box to have the link open in current window.</p>
-			</td>
-			<td>
-				<?php
-		do_action('acf/render_field', array(
-				'type' => 'radio',
-				'name' => 'fields['.$key.'][internal_link]',
-				'value' => $field['internal_link'],
-				'layout' => 'horizontal',
-				'choices' => array(
-					1 => __('Yes','acf'),
-					0 => __('No','acf')
-				)
-			));
-?>
-			</td>
 
-		</tr>
-				<tr class="field_option field_option_<?php echo $this->name; ?>">
-			<td class="label">
-				<label><?php _e("Return array instead of Link",'acf'); ?></label>
-				<p class="description">If "Yes" than the get_field will return an array</p>
-			</td>
-			<td>
-				<?php
-		do_action('acf/render_field', array(
-				'type' => 'radio',
-				'name' => 'fields['.$key.'][output_format]',
-				'value' => $field['output_format'],
-				'layout' => 'horizontal',
-				'choices' => array(
-					1 => __('Yes','acf'),
-					0 => __('No','acf')
-				)
-			));
-?>
-			</td>
+		// layout
+		acf_render_field_setting( $field, array(
+			'label'			=> __('Open in Current Window?','acf'),
+			'instructions'	=> 'If "Yes" than the user can check a box to have the link open in current window.',
+			'type'			=> 'radio',
+			'name'			=> 'internal_link',
+			'layout'		=> 'horizontal',
+			'choices'		=> array(
+				'vertical'		=> __("Yes",'acf'),
+				'horizontal'	=> __("No",'acf')
+			)
+		));
 
-		</tr>
 
-		<?php
+
+
+
+		// layout
+		acf_render_field_setting( $field, array(
+			'label'			=> __('Return array instead of Link','acf'),
+			'instructions'	=> 'If "Yes" than the get_field will return an array',
+			'type'			=> 'radio',
+			'name'			=> 'output_format',
+			'layout'		=> 'horizontal',
+			'choices'		=> array(
+				'vertical'		=> __("Yes",'acf'),
+				'horizontal'	=> __("No",'acf')
+			)
+		));
+
 	}
 
 
