@@ -85,6 +85,9 @@ Screenshots
 
 Changelog
 ===
+2.1
+---
+* Fixed settings for 5.1
 2.0
 ---
 * Removed Auto github updater bundle, best to install their plugin : https://github.com/afragen/github-updater
