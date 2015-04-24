@@ -181,7 +181,7 @@ class Website_field extends acf_Field
 
 			 if(  $field['website_title']  ) echo '<th class="title"><span>Title</span></th>';
 			echo '<th class="url"><span>URL</span></th>';
-			if ($field['internal_link']==1)echo '<th class="internal"><span>Current Window</span></th>';
+			if ($field['internal_link']==1)echo '<th class="internal"><span>Window Target</span></th>';
 
 			echo '</tr></thead><tbody><tr>';
 
@@ -198,7 +198,7 @@ class Website_field extends acf_Field
 				$e .= '<td><input type="hidden" name="'.$key.'[internal]" value="0" />';
 					$selected = (isset($field['value']['internal']) && $field['value']['internal'] == 1) ? 'checked="yes"' : '';
 					$e .= '<label><input type="checkbox" name="'.$key.'[internal]" value="1" ' . $selected . ' />';
-					$e .= 'Current Window</label></td>';
+					$e .= 'Open link in a current window</label></td>';
 
 				}
 
@@ -262,8 +262,8 @@ class Website_field extends acf_Field
 			'name'			=> 'website_title',
 			'layout'		=> 'horizontal',
 			'choices'		=> array(
-				'vertical'		=> __("Yes",'acf'),
-				'horizontal'	=> __("No",'acf')
+				1		=> __("Yes",'acf'),
+				0	=> __("No",'acf')
 			)
 		));
 
@@ -271,14 +271,14 @@ class Website_field extends acf_Field
 
 		// layout
 		acf_render_field_setting( $field, array(
-			'label'			=> __('Open in Current Window?','acf'),
-			'instructions'	=> 'If "Yes" than the user can check a box to have the link open in current window.',
+			'label'			=> __('Option to open in Current Window','acf'),
+			'instructions'	=> 'If "Yes" than the user can check a box to have the link open in current window instead of the default action of always opening in new window.',
 			'type'			=> 'radio',
 			'name'			=> 'internal_link',
 			'layout'		=> 'horizontal',
 			'choices'		=> array(
-				'vertical'		=> __("Yes",'acf'),
-				'horizontal'	=> __("No",'acf')
+				1		=> __("Yes",'acf'),
+				0	=> __("No",'acf')
 			)
 		));
 
@@ -294,8 +294,8 @@ class Website_field extends acf_Field
 			'name'			=> 'output_format',
 			'layout'		=> 'horizontal',
 			'choices'		=> array(
-				'vertical'		=> __("Yes",'acf'),
-				'horizontal'	=> __("No",'acf')
+				1		=> __("Yes",'acf'),
+				0	=> __("No",'acf')
 			)
 		));
 
