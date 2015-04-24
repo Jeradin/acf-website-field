@@ -180,7 +180,7 @@ class Website_field extends acf_Field
 
 			 if(  $field['website_title']  ) echo '<th class="title"><span>Title</span></th>';
 			echo '<th class="url"><span>URL</span></th>';
-			if ($field['internal_link']==1)echo '<th class="internal"><span>Current Window</span></th>';
+			if ($field['internal_link']==1)echo '<th class="internal"><span>Window Target</span></th>';
 
 			echo '</tr></thead><tbody><tr>';
 
@@ -197,7 +197,7 @@ class Website_field extends acf_Field
 				$e .= '<td><input type="hidden" name="'.$key.'[internal]" value="0" />';
 					$selected = (isset($field['value']['internal']) && $field['value']['internal'] == 1) ? 'checked="yes"' : '';
 					$e .= '<label><input type="checkbox" name="'.$key.'[internal]" value="1" ' . $selected . ' />';
-					$e .= 'Current Window</label></td>';
+					$e .= 'Open link in a current window</label></td>';
 
 				}
 
@@ -275,8 +275,8 @@ class Website_field extends acf_Field
 
 		<tr class="field_option field_option_<?php echo $this->name; ?>">
 			<td class="label">
-				<label><?php _e("Open in Current Window?",'acf'); ?></label>
-				<p class="description">If "Yes" than the user can check a box to have the link open in current window.</p>
+				<label><?php _e("Option to open in Current Window",'acf'); ?></label>
+				<p class="description">If "Yes" than the user can check a box to have the link open in current window instead of the default action of always opening in new window.</p>
 			</td>
 			<td>
 				<?php
