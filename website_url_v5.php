@@ -318,7 +318,7 @@ class Website_field extends acf_Field
 	function validate_value( $valid, $value, $field, $input ){
 
 		// bail early if empty
-		if( empty($value) ) {
+		if( empty($value['url']) ) {
 
 			return $valid;
 
